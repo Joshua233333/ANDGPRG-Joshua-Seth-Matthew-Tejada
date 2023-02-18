@@ -6,20 +6,14 @@ public class BulletShooter : MonoBehaviour
 {
 
     public Transform nozzle;
-
     public GameObject bulletPrefab;
 
-    void Start()
-    {
-        
-    }
-
-    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(bulletPrefab, nozzle.transform.position, transform.rotation);
+            AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.audioClip[2]);
         }
     }
 }

@@ -6,13 +6,8 @@ using UnityEngine.UI;
 public class BulletAttack : MonoBehaviour
 {
     public GameObject objectToSpawn;
-    public Scoring score;
     public float hp = 1;
-    void Start()
-    {
-
-    }
-
+    
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
@@ -23,6 +18,11 @@ public class BulletAttack : MonoBehaviour
             {
                 GameManager.Instance.Score+=1;
                 GameManager.Instance.UpdateScore();
+                
+                for (int i = 0; i < 2; i++)
+                {
+                    AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.audioClip[i]);
+                }
                 //score.AddScore(1);
                 Debug.Log(GameManager.Instance.Score);
                 Destroy(this.gameObject);
@@ -33,11 +33,5 @@ public class BulletAttack : MonoBehaviour
         }
     }
     
-    void Update()
-    {
-        
-     
-           
-        
-    }
+    
 }

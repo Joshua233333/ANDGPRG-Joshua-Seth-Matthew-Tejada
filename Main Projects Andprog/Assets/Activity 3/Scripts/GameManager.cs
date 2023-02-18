@@ -8,6 +8,11 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public int Score;
     public Text ScoreText;
+
+    public void Start()
+    {
+        AudioManager.Instance.audioSource2.PlayOneShot(AudioManager.Instance.audioClip[5]);
+    }
     private void Awake()
     {
         if (Instance == null)
@@ -19,18 +24,11 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    void Start()
-    {
-
-    }
+   
     public void UpdateScore()
     {
         ScoreText.text = "Score " + Score;
     }
 
-    void Update()
-    {
-        
-    }
 }
     
