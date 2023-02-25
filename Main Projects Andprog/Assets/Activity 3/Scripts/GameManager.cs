@@ -8,6 +8,11 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public int Score;
     public Text ScoreText;
+    public Text BulletText;
+    public Text ReloadingText;
+    public Text EmptyText;
+    public GameObject YouWinScreen;
+    public GameObject YouLoseScreen;
 
     public void Start()
     {
@@ -30,5 +35,34 @@ public class GameManager : MonoBehaviour
         ScoreText.text = "Score " + Score;
     }
 
+    public void UpdateBulletCount(int value)
+    {
+        BulletText.text = "Bullet Count  " + value.ToString();
+    }
+    public void UpdateReloading()
+    {
+        ReloadingText.text = "Reloading....... ";
+    }
+    public void ReloadingFinish()
+    {
+        ReloadingText.text = "";
+    }
+
+    public void UpdateEmpty()
+    {
+        EmptyText.text = "Empty";
+    }
+    public void EmptyFinished()
+    {
+        EmptyText.text = "";
+    }
+    public void GameWins()
+    {
+        YouWinScreen.SetActive(true);
+    }
+    public void GameLose()
+    {
+        YouLoseScreen.SetActive(true);
+    }
 }
     

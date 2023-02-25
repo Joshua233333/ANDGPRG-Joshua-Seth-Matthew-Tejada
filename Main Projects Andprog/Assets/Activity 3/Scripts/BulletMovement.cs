@@ -14,7 +14,21 @@ public class BulletMovement : MonoBehaviour
         rb.velocity = transform.forward * speed;
     }
 
-    
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<Enemy>().TakeDamage();
+
+        }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerHp>().TakeDamage(10);
+
+        }
+
+    }
+
     void Update()
     {
         Destroy(this.gameObject, 5f);
