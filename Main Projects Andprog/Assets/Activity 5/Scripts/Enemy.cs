@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int hp = 2;
+    public float hp = 2;
+    public float mSpeed;
+    public float fireRate;
 
     public void TakeDamage()
     {

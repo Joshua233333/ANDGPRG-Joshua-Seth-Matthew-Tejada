@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public int Score;
+    public Text GameOverScoreText;
     public Text ScoreText;
     public Text BulletText;
     public Text ReloadingText;
@@ -58,11 +59,17 @@ public class GameManager : MonoBehaviour
     }
     public void GameWins()
     {
-        YouWinScreen.SetActive(true);
+        if (Score >= SpawnManager.Instance.SpawnPoints.Length)
+        {
+            YouWinScreen.SetActive(true);
+        }
+        
     }
     public void GameLose()
     {
+        
         YouLoseScreen.SetActive(true);
+        GameOverScoreText.text = "Score: "+ Score;
     }
 }
     

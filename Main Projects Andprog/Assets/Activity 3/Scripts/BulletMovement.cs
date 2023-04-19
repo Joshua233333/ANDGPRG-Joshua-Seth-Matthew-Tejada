@@ -23,7 +23,7 @@ public class BulletMovement : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerHp>().TakeDamage(10);
+            collision.gameObject.GetComponent<PlayerHp>().TakeDamage(1);
 
         }
 
